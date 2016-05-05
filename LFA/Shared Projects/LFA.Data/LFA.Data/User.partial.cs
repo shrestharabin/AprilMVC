@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LFA.Data
 {
-    public class Class1
+    public partial class User
     {
+        public string FullName { get { return this.FirstName + " " + this.LastName; } }
     }
 }

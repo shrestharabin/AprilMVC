@@ -9,7 +9,7 @@ namespace LFA.Data
     /// <summary>
     /// User class for storing username password.
     /// </summary>
-    public class User
+    public partial class User
     {
         #region Private Members
 
@@ -59,32 +59,65 @@ namespace LFA.Data
             set { _password = value; }
         }
 
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        //public string FullName { get { return this.FirstName + " " + this.LastName; } }
+
+        //public string FullName { get; set; }
+
+        //private int myVar;
+
+        //public int MyProperty
+        //{
+        //    get { return myVar; }
+        //    set { myVar = value; }
+        //}
+
+
         #endregion
 
         #region Public Methods
 
-        public void Authenticate()
-        {
-            if ((UserName == "admin") && (Password == "password"))
-            {
-                Console.WriteLine("welcome {0} you are logged in as Administrator", UserName);
-            }
-            else if ((UserName == "user") && (Password == "password"))
-            {
-                Console.WriteLine("welcome {0} you are logged in as Normal User", UserName);
-            }
-            else
-            {
-                Console.WriteLine("Invalid login");
-            }
-        }
+        //public void Authenticate()
+        //{
+        //    if ((UserName == "admin") && (Password == "password"))
+        //    {
+        //        Console.WriteLine("welcome {0} you are logged in as Administrator", this.FullName);
+        //    }
+        //    else if ((UserName == "user") && (Password == "password"))
+        //    {
+        //        Console.WriteLine("welcome {0} you are logged in as Normal User", UserName);
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Invalid login");
+        //    }
+        //}
 
-        public bool Authenticate(string userName, string password)
+        public bool Authenticate(string userName = "anonymous", string password = "password")
         {
             return (((userName == "admin") && (password == "password"))
                 || (userName == "user") && (password == "password"));
+        }
+
+        public User GetUser(string userName = "anonymous", string password = "password")
+        {
+            //this.UserName = userName;
+            //this.Password = Password;
+            //return this;
+
+            User objUser = new User { Password = password, UserName = userName };
+            return objUser;
+
+            //User objUser1 = new User();
+            //objUser1.UserName = userName;
+            //objUser1.Password = password;
+            //return objUser;
 
         }
+
+        
 
         #endregion
 

@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LFA.Data", "..\..\Shared Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LFA.ConsoleApp", "LFA.ConsoleApp\LFA.ConsoleApp.csproj", "{1EE5F0CB-36D7-45E5-9A19-C22F6E00076E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Assembly", "Shared Assembly", "{CF4EFFB4-D8A7-4829-BDF4-54CA84FFB798}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\..\..\Desktop\LFA.Data.dll = ..\..\..\..\..\..\..\Desktop\LFA.Data.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

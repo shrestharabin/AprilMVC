@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared Projects\LFA.Common\LFA.Common\LFA.Common.csproj">
+      <Project>{7fc62361-04f3-4f18-8ed3-8cc6698ad59e}</Project>
+      <Name>LFA.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Shared Projects\LFA.Data\LFA.Data\LFA.Data.csproj">
       <Project>{44aa12c7-689c-45cf-803f-f6ce54348873}</Project>
       <Name>LFA.Data</Name>
