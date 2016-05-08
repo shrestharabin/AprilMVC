@@ -15,6 +15,43 @@ namespace LFA.ConsoleApp
         static void Main(string[] args)
         {
 
+            int y = new int();
+            var result = y.Multply();
+
+            var mul = y * y;
+
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("First Value");
+            sb.Append("second");
+
+            var finalString = sb.ToString();
+            string str1 = "First Value";
+            str1 += "added";
+
+            string str1Copy = str1;
+            str1Copy = "new value";
+
+            int a = 2;
+            var result = a.Multply();
+
+            string strValue = "a";
+            int z = 0;
+            int.TryParse(strValue, out z);
+
+            string strRole;
+           
+            User objUser1 = new User();
+            objUser1.IsAdmin();
+
+            objUser1.AuthOut(out strRole);
+
+            var isValidobj = objUser1.Authenticate();
+            objUser1.IsAdmin();
+            var role = objUser1.GetUserRole();
+
+
+            Console.ReadLine();
 
             Base objBaseS = new Base();
             objBaseS.Display();
@@ -118,7 +155,6 @@ namespace LFA.ConsoleApp
             //Console.WriteLine("value of count is :- " + count);
 
             int copyOfCount = count;
-
             var copyOfCount1 = copyOfCount;
 
             Console.WriteLine("value of count is :- " + count);

@@ -33,6 +33,7 @@ namespace LFA.Data
         /// <param name="userName">Provide user name </param>
         /// <param name="password">Provide password </param>
         public User(string userName, string password)
+            : this()
         {
             UserName = userName;
             Password = password;
@@ -79,6 +80,8 @@ namespace LFA.Data
 
         #region Public Methods
 
+
+
         //public void Authenticate()
         //{
         //    if ((UserName == "admin") && (Password == "password"))
@@ -97,8 +100,41 @@ namespace LFA.Data
 
         public bool Authenticate(string userName = "anonymous", string password = "password")
         {
+            //return true;
             return (((userName == "admin") && (password == "password"))
                 || (userName == "user") && (password == "password"));
+        }
+
+        public bool Authenticate(string userName)
+        {
+            return (((userName == "admin") && (Password == "password"))
+                || (userName == "user") && (Password == "password"));
+        }
+
+        public bool Auth(ref string role,string userName = "anonymous", string password = "password")
+        {
+            string strRole = "Guest";
+            if ((userName == "admin" && password == "password"))
+                strRole = "admin";
+            else if ((userName == "user" && password == "password"))
+                strRole = "user";
+            role = strRole;
+
+            return strRole == "Guest" ? false : true;
+
+        }
+
+        public bool AuthOut(out string role, string userName = "anonymous", string password = "password")
+        {
+            string strRole = "Guest";
+            if ((userName == "admin" && password == "password"))
+                strRole = "admin";
+            else if ((userName == "user" && password == "password"))
+                strRole = "user";
+            role = strRole;
+
+            return strRole == "Guest" ? false : true;
+
         }
 
         public User GetUser(string userName = "anonymous", string password = "password")
@@ -117,7 +153,7 @@ namespace LFA.Data
 
         }
 
-        
+
 
         #endregion
 
