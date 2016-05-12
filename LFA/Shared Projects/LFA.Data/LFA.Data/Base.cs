@@ -5,8 +5,9 @@ using System.Text;
 
 namespace LFA.Data
 {
-    public partial class LFAUser
+    public class Base
     {
-        public string FullName { get { return this.FirstName + " " + this.LastName; } }
+        public int UpdatedUserID { get; set; }
+        public DateTime UpdatedDate { get; set; }
     }
 }

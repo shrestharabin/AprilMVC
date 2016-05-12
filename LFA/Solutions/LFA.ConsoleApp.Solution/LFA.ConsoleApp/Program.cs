@@ -1,4 +1,5 @@
-﻿using LFA.Common;
+﻿using LFA.Biz;
+using LFA.Common;
 using LFA.Data;
 using System;
 using System.Collections;
@@ -14,6 +15,45 @@ namespace LFA.ConsoleApp
     {
         static void Main(string[] args)
         {
+
+            var userRepo = new UserRepository();           
+
+            List<User> lstUsers = userRepo.GetAll();
+
+            foreach (var item in lstUsers)
+            {
+                Console.WriteLine("User ID: " +item.UserID+ " user name: " +item.UserName);
+            }
+
+            userRepo.Add(new User {UserID=10,UserName="user10",Password="password" });
+
+            List<User> newLIst = userRepo.GetAll();
+
+            List<int> lstInt = new List<int>();
+            lstInt.Add(1);
+
+            lstInt.First();
+            var first=lstInt[0];
+
+
+            var userToRemove = newLIst.Where(x => x.UserID == 5).ToList();
+
+            string[] arrStr = new string[] { "a", "b" };
+
+            
+
+            Console.ReadLine();
+
+
+            //var lstUSers = new LFAUser().GetAll();
+            //new LFAUser().Remove(lstUSers.First());
+
+            //var final = new LFAUser().GetAll();
+
+            //new LFAUser().Add(new LFAUser {UserID=2,UserName="user-03",Password="password" });
+
+            //var lstAfterAdd = new LFAUser().GetAll();
+            
 
             int y = new int();
             var result = y.Multply();
@@ -33,7 +73,7 @@ namespace LFA.ConsoleApp
             str1Copy = "new value";
 
             int a = 2;
-            var result = a.Multply();
+            //var result = a.Multply();
 
             string strValue = "a";
             int z = 0;
@@ -41,7 +81,7 @@ namespace LFA.ConsoleApp
 
             string strRole;
            
-            User objUser1 = new User();
+            LFAUser objUser1 = new LFAUser();
             objUser1.IsAdmin();
 
             objUser1.AuthOut(out strRole);
@@ -53,20 +93,20 @@ namespace LFA.ConsoleApp
 
             Console.ReadLine();
 
-            Base objBaseS = new Base();
+            BaseClass objBaseS = new BaseClass();
             objBaseS.Display();
             DerivedOverrite objDerivedOverrite = new DerivedOverrite();
-            Base objBaseOverrite = (Base)objDerivedOverrite;
+            BaseClass objBaseOverrite = (BaseClass)objDerivedOverrite;
             objBaseOverrite.Display();
             DerivedOverride objDerived = new DerivedOverride();
 
-            Base objBase = (Base)objDerived;
+            BaseClass objBase = (BaseClass)objDerived;
             objBase.Display();
 
             Console.ReadLine();
 
-            Base[] arrUser = new Base[] { objBaseS, objDerivedOverrite, objDerived };
-            List<Base> lstBases = new List<Base> { objBaseS, objDerivedOverrite, objDerived };
+            BaseClass[] arrUser = new BaseClass[] { objBaseS, objDerivedOverrite, objDerived };
+            List<BaseClass> lstBases = new List<BaseClass> { objBaseS, objDerivedOverrite, objDerived };
 
             List<string> lstString = new List<string> { "One", "two" };
 
@@ -116,11 +156,11 @@ namespace LFA.ConsoleApp
             //Console.Write("Password:");
             //string strPassword = Console.ReadLine();
 
-            User objUser = new User();
+            LFAUser objUser = new LFAUser();
             //objUser.FirstName = "Ravi";
             //objUser.LastName = "shrestha"; 
 
-            if (new User().Authenticate())
+            if (new LFAUser().Authenticate())
             {//user is authenticatd returns true
                 Console.WriteLine("you are authenticated");
             }
@@ -140,7 +180,7 @@ namespace LFA.ConsoleApp
                 Console.WriteLine("you are not authenticated");
             }
 
-            var isUserValid = new User().Authenticate("user", "password");
+            var isUserValid = new LFAUser().Authenticate("user", "password");
 
 
             objUser.Authenticate(userName: "admin");
@@ -163,7 +203,7 @@ namespace LFA.ConsoleApp
             copyOfCount = copyOfCount + 1;
             Console.WriteLine("copyOfCount of count is :- " + copyOfCount);
 
-            User objUserCopy = objUser;
+            LFAUser objUserCopy = objUser;
             objUserCopy.UserName = "New User";
 
             Console.WriteLine("User name of objuser =" + objUser.UserName);
