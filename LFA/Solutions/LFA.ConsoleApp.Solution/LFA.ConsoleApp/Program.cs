@@ -4,9 +4,12 @@ using LFA.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.OleDb;
 
 
 namespace LFA.ConsoleApp
@@ -15,6 +18,27 @@ namespace LFA.ConsoleApp
     {
         static void Main(string[] args)
         {
+            OleDbConnection con = new OleDbConnection();
+
+
+            SqlConnection conn = new SqlConnection("Password=system;Persist Security Info=True;User ID=sa;Initial Catalog=LFABlog;Data Source=192.168.1.27;");
+            
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT * FROM dbo.Roles";
+            cmd.CommandType = CommandType.Text;
+
+            conn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {               
+                Console.WriteLine(dr["RoleName"]);
+            }
+            dr.Close();
+            conn.Close();
+
+            Console.Read();
 
             var userRepo = new UserRepository();           
 
